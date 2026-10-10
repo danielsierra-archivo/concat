@@ -90,8 +90,13 @@ impl Default for StartPane {
 /// desktop. The desktop the system names, not `~/Desktop`: on Windows
 /// OneDrive often moves it, and on Linux it is called what the desktop's
 /// language calls it. A phone has no desk: its projects live at the top of
-/// the folder the file manager shows for the app.
+/// the folder the file manager shows for the app. On iOS the sandbox only
+/// allows writing inside the app container's `Documents`, `Library` and
+/// `tmp`, so projects go to `Documents/Concat`.
 fn default_location() -> String {
+    if cfg!(target_os = "ios") {
+        return home_folder("Documents/Concat");
+    }
     if cfg!(target_os = "android") {
         return home_folder("Concat");
     }

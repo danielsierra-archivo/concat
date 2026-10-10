@@ -93,6 +93,8 @@ cat > "$app/Info.plist" <<PLIST
   <key>NSPhotoLibraryUsageDescription</key><string>Concat imports the clips you pick.</string>
   <key>NSMicrophoneUsageDescription</key><string>Concat records voice-over.</string>
   <key>NSHumanReadableCopyright</key><string>AGPL-3.0-or-later. See THIRD_PARTY_NOTICES.md.</string>
+  <key>UIFileSharingEnabled</key><true/>
+  <key>LSSupportsOpeningDocumentsInPlace</key><true/>
 </dict>
 </plist>
 PLIST
